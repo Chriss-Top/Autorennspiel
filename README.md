@@ -45,15 +45,16 @@ Weitere Fahrzeuge: Tesla Roadster, Iron Buffalo, Neon Phantom und Rally Fox mit 
 
 Alle vier Levels sind jetzt 6.000 Meter lang, doppelt so lang wie zuvor.
 
-| Gegner | Verhalten |
-| --- | --- |
-| Banditenauto | Schießt nach vorne |
-| Blitzdrohne | Fliegt im Zickzack und feuert gezielte Elektrogeschosse |
-| Jagdspinne | Verfolgt das nächste Teamfahrzeug und rammt es, ohne Schusswaffe |
-| Steingolem | 240 Panzerung, wirft zwei schwere Felsgeschosse |
-| Plasma-UFO | Feuert fünf Plasmakugeln als breiten Fächer |
+Jede Welt hat drei exklusive Gegnertypen. Diese Auswahl gilt auch für Gegner, die aus zerstörten Felsen entstehen.
 
-Alle Gegner sind zerstörbar und werden auch von Alex’ Riesenfeuerblitz beseitigt. Aus Felsen können ebenfalls unterschiedliche Gegner entstehen.
+| Welt | Gegner | Angriffe |
+| --- | --- | --- |
+| Sunset Canyon | Sand-Buggy, Riesenskorpion, Sandkoloss | Doppelte Sandschüsse, gezielter Giftstachel, schwere Felswürfe |
+| Neon City | Cyber-Patrouille, Neondrohne, Cyber-UFO | Doppellaser, gezielte Elektrogeschosse, fünfteiliger Plasmafächer |
+| Frost Valley | Eiskäfer, Schnee-Yeti, Frostgeist | Verfolgen und Rammen, Schneeballfächer, gezielte Eissplitter |
+| Jungle Run | Giftspinne, Schnapppflanze, Riesenhornisse | Verfolgen und Gift, Samensalven, gezielte Stachelgeschosse |
+
+Alle zwölf Gegner haben eigene Namen und passende Gestalten. Unterschiedliche Panzerung, Bewegung, Schussmuster und Geschosse sorgen für Abwechslung. Eis- und Schneegeschosse verlangsamen 2,5 Sekunden, Gift wirkt 3 Sekunden nach. Der permanente Super-Turbo wird durch Eis nicht gebremst. Alle Gegner sind zerstörbar und werden von Alex’ Riesenfeuerblitz beseitigt.
 
 ## Kurven und Sammelgegenstände
 
@@ -82,6 +83,8 @@ node tests/check.cjs
 node scripts/build-single.cjs
 ```
 
-Zusätzlich geprüft: 6.000-Meter-Ziele, alle fünf Gegnerarten, Dreifach-Turbo, Ablauf und Neustart der Turbo-Kette sowie dauerhaftes Tempo ohne Bremsmöglichkeit.
+Zusätzlich geprüft: 6.000-Meter-Ziele, alle zwölf weltgebundenen Gegnerarten, Dreifach-Turbo, Ablauf und Neustart der Turbo-Kette sowie dauerhaftes Tempo ohne Bremsmöglichkeit.
+
+Zusätzlich geprüft: Gegnerpools je Welt, alle zwölf Darstellungen und Angriffe, passende Fels-Gegner und Eis-/Gifteffekte.
 
 Simulationstests bestanden. Eine visuelle Browserprüfung wurde in der Erstellungsumgebung nicht durchgeführt.
