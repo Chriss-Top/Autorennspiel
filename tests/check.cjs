@@ -6,7 +6,7 @@ fire(players[0]);assertTest(shots.length>0,'Weapons fire');
 transform(players[0]);assertTest(players[0].form==='Drache','Alex transforms');
 players[0].hp=0;objects=[{type:'heal',x:players[1].x,y:players[1].y-20,speed:0,age:0}];update(.01);assertTest(players[0].hp===35,'Team repair revives');
 pause();assertTest(state==='paused','Pause');pause();assertTest(state==='running','Resume');
-distance=2999;update(.1);assertTest(state==='ended','Finish reached');
+distance=5999;update(.1);assertTest(state==='ended','Finish reached');
 for(let w=0;w<4;w++){world=w;start();players.forEach(p=>p.ai=true);for(let t=0;t<1500&&state==='running';t++)update(.04);draw();assertTest(Number.isFinite(distance),'Simulation remains finite');}
 start();let alex=players[0];
 objects=[{type:'enemy',x:300,y:100,hp:65},{type:'enemy',x:600,y:200,hp:65},{type:'rock',x:400,y:100,hp:65},{type:'bullet',x:500,y:50}];
@@ -22,6 +22,10 @@ collect(p,{type:'barrel'});useItem(p,'oil');let slick=objects.find(o=>o.type==='
 objects.push({type:'enemy',x:slick.x,y:slick.y,hp:65,age:0,cd:5,speed:0,seed:0});update(.001);assertTest(objects.find(o=>o.type==='enemy').slip>0,'Oil slips enemy');
 collect(p,{type:'boost'});assertTest(p.boost===6,'Boost card activates immediately');let d=distance;update(.1);let boosted=distance-d;p.boost=0;d=distance;update(.1);assertTest(boosted>1.5*(distance-d),'Turbo increases track speed');
 for(let w=0;w<4;w++){world=w;assertTest(Math.abs(roadOffset(0)-roadOffset(500))>1,'Curved road in each world');}
+start();players.forEach(p=>p.ai=false);distance=3001;update(.01);assertTest(state==='running','Old finish no longer ends level');distance=5999;update(.1);assertTest(state==='ended','6000m finish');assertTest(worlds.every(w=>w.length===6000),'All four levels doubled');
+start();let runner=players[0];collect(runner,{type:'boost'});collect(runner,{type:'boost'});assertTest(!runner.superTurbo&&runner.turboChain===2,'Two turbos remain normal');collect(runner,{type:'rocket'});collect(runner,{type:'boost'});assertTest(runner.superTurbo,'Three turbos unlock permanent super turbo');let superDistance=distance;update(.1);superDistance=distance-superDistance;for(let i=0;i<250;i++){objects=[];runner.inv=10;update(.04);}assertTest(runner.superTurbo&&runner.boost>0,'Super turbo persists beyond normal timer');let previousY=runner.y;keys.ArrowDown=true;update(.1);keys={};assertTest(runner.y<=previousY,'Super turbo cannot brake');start();assertTest(!players[0].superTurbo,'New race resets super turbo');runner=players[0];collect(runner,{type:'boost'});runner.boost=.001;update(.01);collect(runner,{type:'boost'});assertTest(runner.turboChain===1&&!runner.superTurbo,'Expired chain resets');
+for(const kind of enemyKinds){start();let enemy=createEnemy(500,120,kind);objects=[enemy];enemy.cd=0;moveEnemy(enemy,.1);drawEnemy(enemy);if(kind==='spider')assertTest(!objects.some(o=>o.type==='bullet'),'Spider chases without gun');else assertTest(objects.some(o=>o.type==='bullet'),'Every ranged kind attacks');if(kind==='golem')assertTest(enemy.hp===240,'Golem has high armor');players[0].blastCD=0;superWeapon(players[0],'blast');assertTest(enemy.dead,'Alex blast clears every enemy kind');}
+console.log('PASS: doubled levels, permanent triple-turbo chain, chain reset and all five enemy types');
 console.log('PASS: permanent form selection, seven unique weapons, rocket inventory, oil collisions, boost and four curved worlds');
 console.log('PASS: super weapons, cooldowns, instant rock destruction, random enemy emergence and distinct form drawing');
 console.log('PASS: controls, weapons, transformation, repair, pause, finish and four-world simulation');

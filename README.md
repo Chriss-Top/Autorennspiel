@@ -41,17 +41,31 @@ Zusätzlich behält Alex seine Superwaffen: Der **Riesenfeuerblitz** beseitigt a
 
 Weitere Fahrzeuge: Tesla Roadster, Iron Buffalo, Neon Phantom und Rally Fox mit unterschiedlichen Geschwindigkeiten, Panzerungen und Waffen.
 
+## Längere Levels und neue Gegner
+
+Alle vier Levels sind jetzt 6.000 Meter lang, doppelt so lang wie zuvor.
+
+| Gegner | Verhalten |
+| --- | --- |
+| Banditenauto | Schießt nach vorne |
+| Blitzdrohne | Fliegt im Zickzack und feuert gezielte Elektrogeschosse |
+| Jagdspinne | Verfolgt das nächste Teamfahrzeug und rammt es, ohne Schusswaffe |
+| Steingolem | 240 Panzerung, wirft zwei schwere Felsgeschosse |
+| Plasma-UFO | Feuert fünf Plasmakugeln als breiten Fächer |
+
+Alle Gegner sind zerstörbar und werden auch von Alex’ Riesenfeuerblitz beseitigt. Aus Felsen können ebenfalls unterschiedliche Gegner entstehen.
+
 ## Kurven und Sammelgegenstände
 
 Vier Welten mit unterschiedlichen Kurvenverläufen: Sunset Canyon, Neon City, Frost Valley und Jungle Run. In Kurven gegenlenken: Abseits der Fahrbahn nimmt das Fahrzeug Schaden.
 
 - **🚀 Rakete:** landet im Vorrat und kann später als explosive Suchrakete abgeschossen werden.
 - **🛢 Ölfass:** landet im Vorrat. Beim Einsatz wird hinter dem Auto ein Ölfleck gelegt. Gegner und das andere Teamauto geraten darauf ins Schleudern; der Verursacher ist gegen seinen eigenen Ölfleck geschützt.
-- **⚡ Blitzkarte:** aktiviert sofort 6 Sekunden Turbo mit sichtbar blauem Flammenschweif. Das Fahrzeug lenkt schneller und das Team legt die Strecke schneller zurück.
+- **⚡ Blitzkarte:** aktiviert sofort 6 Sekunden Turbo mit sichtbar blauem Flammenschweif. Sammle die nächste Karte, bevor der laufende Turbo ausläuft. Nach **drei Karten in dieser Kette** bleibt der **Super-Turbo bis zum Ziel** aktiv: 3,4-faches Streckentempo und besonders schnelle Lenkung. Er lässt sich nicht abbremsen oder abschalten. Andere Sammelgegenstände unterbrechen die Kette nicht; ein abgelaufener normaler Turbo setzt sie zurück. Jeder Spieler zählt seine eigene Kette. Ein neues Rennen setzt alles zurück.
 - **Grünes Kreuz:** repariert beide Autos und belebt ausgeschiedene Teammitglieder wieder.
 - **Energiekristall:** gibt Punkte.
 
-Überlebt gemeinsam die 3.000 Meter. Ein Teamfahrzeug muss das Ziel erreichen. Lokales Spiel an einer Tastatur; kein Online-Multiplayer.
+Überlebt gemeinsam die 6.000 Meter. Ein Teamfahrzeug muss das Ziel erreichen. Lokales Spiel an einer Tastatur; kein Online-Multiplayer.
 
 ## Quellcode und Prüfungen
 
@@ -67,5 +81,7 @@ node --check dist/game.js
 node tests/check.cjs
 node scripts/build-single.cjs
 ```
+
+Zusätzlich geprüft: 6.000-Meter-Ziele, alle fünf Gegnerarten, Dreifach-Turbo, Ablauf und Neustart der Turbo-Kette sowie dauerhaftes Tempo ohne Bremsmöglichkeit.
 
 Simulationstests bestanden. Eine visuelle Browserprüfung wurde in der Erstellungsumgebung nicht durchgeführt.
