@@ -1,60 +1,71 @@
 # Alex Team Racing
 
-Kooperatives 2D-Autospiel im Browser: zwei Teamfahrzeuge, Hindernisse, Gegner und ein gemeinsames Streckenziel.
+Kooperatives 2D-Autospiel für zwei Spieler oder mit Computerfahrern.
 
-## Herunterladen und starten
+## Download und Start
 
-[Alles als ZIP herunterladen](https://github.com/Chriss-Top/Autorennspiel/archive/refs/heads/main.zip)
+[Spiel als ZIP herunterladen](https://github.com/Chriss-Top/Autorennspiel/archive/refs/heads/main.zip)
 
-1. ZIP herunterladen und entpacken.
-2. `Alex-Team-Racing.html` per Doppelklick in einem aktuellen Desktop-Browser öffnen.
-3. Autos, Welt und Steuerung (Spieler oder Computer) wählen und „Rennen starten“ klicken.
-
-Kein Build, keine Installation und kein Server erforderlich. Die Schriftarten werden optional aus Google Fonts geladen; ohne Internet verwendet das Spiel Ersatzschriften.
+ZIP entpacken und **Alex-Team-Racing.html** in einem aktuellen Desktop-Browser öffnen. Kein Build oder Server nötig. Eine Tastatur wird benötigt. Google Fonts ist optional; ohne Internet greifen Ersatzschriften.
 
 ## Steuerung
 
 | Aktion | Spieler 1 (rechts) | Spieler 2 (links) |
 | --- | --- | --- |
 | Fahren | Pfeiltasten | WASD |
-| Waffe | Enter | Leertaste |
-| Alex verwandeln | M | Q |
+| Formwaffe abfeuern | Enter | Leertaste |
+| Alex: nächste Form | M | Q |
 | Alex: Riesenfeuerblitz | Punkt (.) | E |
 | Alex: Riesen-Steinbombe | Komma (,) | R |
+| Gesammelte Rakete abfeuern | / | F |
+| Gesammeltes Öl ablegen | rechte Umschalttaste | G |
 | Pause | P / Escape | P / Escape |
 
-Beide Plätze können unabhängig von einem Menschen oder Computer gesteuert werden. Lokales Spiel an einer Tastatur, kein Online-Multiplayer. Tastatur erforderlich.
+Die Pfeilknöpfe **◀ / ▶** in Alex’ Fahrzeugkarte schalten vor und während des Rennens durch alle Formen. Die gewählte Form bleibt aktiv, bis eine andere gewählt wird. Jeder Spieler hat eine eigene Auswahl und eigene Vorräte. Andere Fahrzeuge können ebenfalls Raketen, Öl und Turbo sammeln. Beide Plätze lassen sich unabhängig auf Computersteuerung stellen.
 
-## Autos und Welten
+## Alex’ dauerhafte Formen
 
-- Alex Team Auto: Formenblaster, Riesenfeuerblitz und Riesen-Steinbombe. Sichtbare Verwandlungen in Drache, Flugzeug, UFO, Panzer, Roboter oder Geist ersetzen das Auto komplett. Einige weitere Namen erscheinen als passende Emoji-Objekte, unbekannte Namen als magisches Geschenkobjekt mit dem gewählten Namen. Flugformen überwinden Felsen, Panzer/Roboter erhalten Panzerung, Geister sind unverwundbar, weitere Fantasieformen erhalten einen Schild. Aktiv für 5 Sekunden, danach 10 Sekunden Abklingzeit.
-- Tesla Roadster: hohes Tempo und Elektroblitz.
-- Iron Buffalo: starke Panzerung und Doppelkanone.
-- Neon Phantom: schneller Plasmalaser.
-- Rally Fox: Streuschuss.
+| Form | Besondere Schüsse |
+| --- | --- |
+| Auto | Formenblaster |
+| Drache | Breiter Feuerfächer aus fünf Flammen |
+| Flugzeug | Zwei explosive Suchraketen |
+| Raumschiff | Zwei große zielsuchende Plasmakugeln |
+| Panzer | Schwere Granate mit Explosion im Umkreis |
+| Roboter | Schnelle Zickzack-Energielaser |
+| Geist | Seelenwelle, die mehrere Ziele durchdringt |
 
-Vier auswählbare Welten: Sunset Canyon, Neon City, Frost Valley und Jungle Run. Die Welten bieten unterschiedliche Landschaften; die Hindernis- und Gegnermechanik ist gemeinsam.
+Alle Formen haben eigene sichtbare Gestalten und Geschosse. Flugformen überwinden Felsen. Panzer und Roboter nehmen weniger Schaden; der Geist ist unverwundbar.
 
-Erreicht die 3.000 Meter, solange mindestens ein Teamfahrzeug überlebt. Grüne Reparaturen heilen beide Autos und können ausgeschiedene Teammitglieder wiederbeleben. Gelbe Energie und besiegte Gegner geben Punkte.
+Zusätzlich behält Alex seine Superwaffen: Der **Riesenfeuerblitz** beseitigt alle aktuellen Gegner und gegnerischen Geschosse sofort (8 Sekunden Nachladezeit). Die **Riesen-Steinbombe** zerstört getroffene und nahe Felsen sofort (2,5 Sekunden Nachladezeit). Aus zerstörten Felsen entstehen mit 35 % Wahrscheinlichkeit neue Gegner.
 
-## Alex’ Superwaffen
+Weitere Fahrzeuge: Tesla Roadster, Iron Buffalo, Neon Phantom und Rally Fox mit unterschiedlichen Geschwindigkeiten, Panzerungen und Waffen.
 
-- Riesenfeuerblitz: beseitigt alle aktuellen Gegner und gegnerischen Geschosse sofort, mit bildschirmfüllenden Feuerblitzen. Nachladezeit: 8 Sekunden.
-- Riesen-Steinbombe: großer fliegender Felsbrocken, der getroffene Felsen und weitere Felsen im Radius von 135 Spielpixeln sofort zerstört. Nachladezeit: 2,5 Sekunden.
-- Aus jedem zerstörten Felsen entsteht mit 35 % Wahrscheinlichkeit ein neuer Gegner, auch bei normalen Waffen.
-- Computerfahrer verwenden die Superwaffen automatisch.
+## Kurven und Sammelgegenstände
 
-## Quelldateien
+Vier Welten mit unterschiedlichen Kurvenverläufen: Sunset Canyon, Neon City, Frost Valley und Jungle Run. In Kurven gegenlenken: Abseits der Fahrbahn nimmt das Fahrzeug Schaden.
 
-- `Alex-Team-Racing.html`: komplette Version in einer Datei.
-- `dist/index.html`, `dist/style.css`, `dist/game.js`: bearbeitbare Quelldateien. Zum Bearbeiten diese Dateien verwenden; die einzelne HTML-Datei kann mit `node scripts/build-single.cjs` neu erzeugt werden.
-- `tests/check.cjs`: Simulation für Steuerung, Waffen, Verwandlung, Reparaturen, Pause, Zieleinlauf und vier Welten.
+- **🚀 Rakete:** landet im Vorrat und kann später als explosive Suchrakete abgeschossen werden.
+- **🛢 Ölfass:** landet im Vorrat. Beim Einsatz wird hinter dem Auto ein Ölfleck gelegt. Gegner und das andere Teamauto geraten darauf ins Schleudern; der Verursacher ist gegen seinen eigenen Ölfleck geschützt.
+- **⚡ Blitzkarte:** aktiviert sofort 6 Sekunden Turbo mit sichtbar blauem Flammenschweif. Das Fahrzeug lenkt schneller und das Team legt die Strecke schneller zurück.
+- **Grünes Kreuz:** repariert beide Autos und belebt ausgeschiedene Teammitglieder wieder.
+- **Energiekristall:** gibt Punkte.
 
-Prüfung aus dem Repository-Hauptverzeichnis mit Node.js:
+Überlebt gemeinsam die 3.000 Meter. Ein Teamfahrzeug muss das Ziel erreichen. Lokales Spiel an einer Tastatur; kein Online-Multiplayer.
+
+## Quellcode und Prüfungen
+
+- `Alex-Team-Racing.html`: vollständige Version in einer Datei.
+- `dist/index.html`, `dist/style.css`, `dist/game.js`: bearbeitbare Quelldateien.
+- `scripts/build-single.cjs`: erzeugt die Einzeldatei erneut.
+- `tests/check.cjs`: Simulation für Steuerung, sieben Formwaffen, dauerhafte Formauswahl, Superwaffen, Raketen-Vorrat, Öl-Kollisionen, Turbo, Kurven, Reparatur, Pause und Zieleinlauf.
+
+Aus dem Repository-Hauptverzeichnis mit Node.js:
 
 ```sh
 node --check dist/game.js
 node tests/check.cjs
+node scripts/build-single.cjs
 ```
 
-Die Simulation ist bestanden. Eine visuelle Browserprüfung wurde in der Erstellungsumgebung nicht durchgeführt.
+Simulationstests bestanden. Eine visuelle Browserprüfung wurde in der Erstellungsumgebung nicht durchgeführt.
