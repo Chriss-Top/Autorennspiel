@@ -15,6 +15,8 @@ ZIP entpacken und **Alex-Team-Racing.html** in einem aktuellen Desktop-Browser �
 | Fahren | Pfeiltasten | WASD |
 | Formwaffe abfeuern | Enter | Leertaste |
 | Alex: nächste Form | M | Q |
+| Drehung im Sprung | J | C |
+| Salto im Sprung | K | V |
 | Alex: Riesenfeuerblitz | Punkt (.) | E |
 | Alex: Riesen-Steinbombe | Komma (,) | R |
 | Gesammelte Rakete abfeuern | / | F |
@@ -34,12 +36,21 @@ Die Pfeilknöpfe **◀ / ▶** in Alex’ Fahrzeugkarte schalten vor und währen
 | Panzer | Schwere Granate mit Explosion im Umkreis |
 | Roboter | Schnelle Zickzack-Energielaser |
 | Geist | Seelenwelle, die mehrere Ziele durchdringt |
+| Formel-1 | Zwei besonders schnelle Ionenblitze; 30 % schnelleres Lenken und Bewegen |
 
 Alle Formen haben eigene sichtbare Gestalten und Geschosse. Flugformen überwinden Felsen. Panzer und Roboter nehmen weniger Schaden; der Geist ist unverwundbar.
 
 Zusätzlich behält Alex seine Superwaffen: Der **Riesenfeuerblitz** beseitigt alle aktuellen Gegner und gegnerischen Geschosse sofort (8 Sekunden Nachladezeit). Die **Riesen-Steinbombe** zerstört getroffene und nahe Felsen sofort (2,5 Sekunden Nachladezeit). Aus zerstörten Felsen entstehen mit 35 % Wahrscheinlichkeit neue Gegner.
 
 Weitere Fahrzeuge: Tesla Roadster, Iron Buffalo, Neon Phantom und Rally Fox mit unterschiedlichen Geschwindigkeiten, Panzerungen und Waffen.
+
+## Rampen, Sprünge und Tricks
+
+Alle Autos können in jeder Welt über Rampen und Mega-Schanzen springen. Die ersten Rampen erscheinen nach 160 Metern, weitere alle 450 Meter. Überfahre die markierte Rampe zum automatischen Absprung. Normale Sprünge dauern 1,6 Sekunden, Mega-Sprünge 2,2 Sekunden.
+
+In der Luft sind Drehungen (J / C) und Saltos (K / V) möglich. Zwischen Tricks liegen 0,5 Sekunden Pause; der letzte Trick muss mindestens 0,45 Sekunden vor der Landung starten. Normale Rampen erlauben bis zu zwei Tricks, Mega-Schanzen bis zu drei. Computerfahrer machen automatisch Tricks. In der Luft überfliegt das Auto Bodenhindernisse und Geschosse. Saubere Landungen geben 100 Punkte plus 200 pro Drehung und 250 pro Salto.
+
+Alex’ dauerhaft wählbare **Formel-1-Form** hat eine eigene Silhouette mit offenen Rädern, Front- und Heckflügel und feuert einen Doppel-Ionenblitz.
 
 ## Längere Levels und neue Gegner
 
@@ -87,4 +98,6 @@ Zusätzlich geprüft: 6.000-Meter-Ziele, alle zwölf weltgebundenen Gegnerarten,
 
 Zusätzlich geprüft: Gegnerpools je Welt, alle zwölf Darstellungen und Angriffe, passende Fels-Gegner und Eis-/Gifteffekte.
 
-Simulationstests bestanden. Eine visuelle Browserprüfung wurde in der Erstellungsumgebung nicht durchgeführt.
+Zusätzlich geprüft: achte Formel-1-Form, Ionenwaffe, Rampen-Kollision, Sprungschutz, Trick-Abklingzeit, Landung und einmalige Punktevergabe.
+
+Simulationstests bestanden. Der zusätzliche Chromium-Browsertest konnte wegen einer Socket-Sperre der Umgebung nicht starten (setsockopt: Operation not permitted). Die visuelle Browserprüfung bleibt offen.
